@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>To-Do List</h1>
+  <div class="todo-input" [formGroup]="form">
+    <input type="text" id="todoInput" formControlName="task" placeholder="Add a new task...">
+    <button id="addBtn" (click)="addTodo()">{{isEdit ? 'update':'Add'}}</button>
+  </div>
+  <ul id="todoList">
+    <div class="todo_div" *ngFor="let item of todos">
+      <li>{{item.task}}</li>
+      <div>
+        <button (click)="updateTodo(item)">Update</button>
+        <button class="delete" (click)="removeTodo(item)">Delete</button>
+
+      </div>
+    </div>
+  </ul>
+</div>
+  
+
+<router-outlet />
